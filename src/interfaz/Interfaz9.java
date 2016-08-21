@@ -5,6 +5,8 @@
  */
 package interfaz;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jesus
@@ -27,21 +29,104 @@ public class Interfaz9 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtMonto1 = new javax.swing.JTextField();
+        txtMonto2 = new javax.swing.JTextField();
+        txtValor = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        cmdCalcular = new javax.swing.JButton();
+        cmdBorrar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Rage Italic", 0, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setText("Saravia");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 210, 50));
+
+        jLabel7.setFont(new java.awt.Font("Swis721 LtEx BT", 0, 18)); // NOI18N
+        jLabel7.setText("Mobile");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 140, 20));
+        jPanel1.add(txtMonto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 70, -1));
+        jPanel1.add(txtMonto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 70, -1));
+
+        txtValor.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
+        jPanel1.add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 180, -1));
+
+        jLabel2.setText("Monto inicial");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+
+        jLabel3.setText("Monto final");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
+        jLabel4.setText("Valor de la llamada");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, -1));
+
+        cmdCalcular.setForeground(new java.awt.Color(0, 102, 51));
+        cmdCalcular.setText("Calcular");
+        cmdCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCalcularActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, -1, -1));
+
+        cmdBorrar.setForeground(new java.awt.Color(204, 0, 0));
+        cmdBorrar.setText("Borrar");
+        jPanel1.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
+        String res1;
+        double mi,mf,resta,porcentaje,suma=0;
+        if (txtMonto1.getText().trim().isEmpty() ){
+             JOptionPane.showMessageDialog(this,"Por favor digiete el monto inicial","Error",JOptionPane.ERROR_MESSAGE);
+            txtMonto1.requestFocusInWindow();
+        }else if (txtMonto2.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this,"Por favor Digite el monto final","Error",JOptionPane.ERROR_MESSAGE);
+            txtMonto2.requestFocusInWindow();
+        }else {
+            try{
+         mi= Double.parseDouble(txtMonto1.getText());
+            mf = Double.parseDouble(txtMonto2.getText());
+            if(mi>mf){
+             resta= mi-mf;
+                porcentaje= (resta*20)/100;
+             suma= resta+porcentaje;
+               res1=String.valueOf(suma);
+           txtValor.setText(res1);
+            }else{
+            JOptionPane.showMessageDialog(this,"El valor Consumido no puede ser mayor al valor inicial","Error",JOptionPane.ERROR_MESSAGE);
+            }
+            }catch (Exception e){
+               JOptionPane.showMessageDialog(this,"Ingrese numero validos","Error", JOptionPane.ERROR_MESSAGE);
+            txtMonto1.requestFocusInWindow();
+            }
+            
+           
+        }
+        
+    }//GEN-LAST:event_cmdCalcularActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +164,16 @@ public class Interfaz9 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cmdBorrar;
+    private javax.swing.JButton cmdCalcular;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txtMonto1;
+    private javax.swing.JTextField txtMonto2;
+    private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }
