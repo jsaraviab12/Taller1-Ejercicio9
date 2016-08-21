@@ -53,10 +53,27 @@ public class Interfaz9 extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Swis721 LtEx BT", 0, 18)); // NOI18N
         jLabel7.setText("Mobile");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 140, 20));
+
+        txtMonto1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMonto1KeyTyped(evt);
+            }
+        });
         jPanel1.add(txtMonto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 70, -1));
+
+        txtMonto2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMonto2KeyTyped(evt);
+            }
+        });
         jPanel1.add(txtMonto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 70, -1));
 
         txtValor.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
+        txtValor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtValorKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 180, -1));
 
         jLabel2.setText("Monto inicial");
@@ -140,6 +157,39 @@ public class Interfaz9 extends javax.swing.JFrame {
         txtValor.setText("");
         txtMonto1.requestFocusInWindow();
     }//GEN-LAST:event_cmdBorrarActionPerformed
+
+    private void txtMonto1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMonto1KeyTyped
+        char c=evt.getKeyChar();
+             
+         
+          if(!Character.isDigit(evt.getKeyChar()) &&evt.getKeyChar()!='.'){ 
+              getToolkit().beep(); 
+               
+              evt.consume(); 
+          }
+    }//GEN-LAST:event_txtMonto1KeyTyped
+
+    private void txtMonto2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMonto2KeyTyped
+       char c=evt.getKeyChar();
+             
+         
+          if(!Character.isDigit(evt.getKeyChar()) &&evt.getKeyChar()!='.'){ 
+              getToolkit().beep(); 
+               
+              evt.consume(); 
+          }
+    }//GEN-LAST:event_txtMonto2KeyTyped
+
+    private void txtValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorKeyTyped
+        char c=evt.getKeyChar();
+             
+         
+        
+              getToolkit().beep(); 
+               
+              evt.consume(); 
+        
+    }//GEN-LAST:event_txtValorKeyTyped
 
     /**
      * @param args the command line arguments
